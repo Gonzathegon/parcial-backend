@@ -11,7 +11,10 @@ app.use(express.json())
 app.use('/api', clientesRoutes)
 
 app.get('/', (req, res) => {
-  res.json({ mensaje: 'Backend del parcial funcionando' })
+  try{
+   res.json({ mensaje: 'Backend del parcial funcionando' })}
+
+  catch(error){"no esta entrando en la api"}
 })
 
 const PORT = process.env.PORT || 3000

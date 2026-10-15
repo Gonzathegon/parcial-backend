@@ -2,11 +2,11 @@ const supabase = require('../config/database')
 
 const getClientes = async (req, res) => {
   try {
-    const { data, error } = supabase.from('clientes').select('*')
+    const { data, error } = await supabase.from('clientes').select('*')
     if (error) return res.status(500).json({ error: error.message })
     console.log('Clientes obtenidos:', data)
     res.json(data)
-  } catch (err) {
+  } catch (error) {
     console.log('Error en getClientes:', err.message)
     res.status(500).json({ error: 'Error del servidor' })
   }
